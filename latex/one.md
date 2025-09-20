@@ -35,3 +35,10 @@
 		}
 ```
 上面是使用了 \x+1 的写法
+# 浮点丢失问题
+`! LaTeX Error: Float(s) lost.` 如果使用了 figure 环境可能会造成这种问题。解决方法是
+```
+\usepackage{float}
+\begin{figure}[H]
+	......
+\end{figure}
