@@ -9,3 +9,29 @@
 `\node (p5) [state,right=of p4,accepting] {p5};` 这里的 `right=of p4` 表示在 p4 节点的右边。 `accepting` 表示是接受状态，有两个圆圈。位置关系使用这四个词语 `left right above below`  
 `\draw [->] (p0) edge node [above] {0,1} (p1);` 表示从 p0 到 p1 画一条直线。直线上面写着 `0,1` 并且是在上面显示，也可使用左边，下面或者右边。  
 `\draw [->] (p6) edge [loop above] node [above] {0,1} ();` 表示 p6 节点的上面有个指向自己的箭头，并且文字标注是在箭头的上面。
+`\draw [->] (p1) to[bend left] node [above] {0} (p2);` 是指 p1 到 p2 之间有个弯箭头，并且是从左边弯的。
+# 循环
+```
+\foreach \y in {0,1}{
+			\node (p\y3) [state,accepting,right=of p\y2] {p\y3};
+		}
+```
+上面的变量是 \y ，范围是 0,1
+# 自定义命令
+```
+\newcommand{\includeimage}[1]{
+	\begin{figure}[H]
+		\centering
+		\includestandalone{./#1/#1}
+	\end{figure}
+}
+```
+上面表示命令名字是 includeimage ，有一个参数。
+```
+\foreach \x [evaluate=\x as \xx using int(\x+1)] in {0,1,2}{
+			\foreach \y in {0,1}{
+					\draw [->] (p\y\x) edge node [above] {0} (p\y\xx);
+				}
+		}
+```
+上面是使用了 \x+1 的写法
