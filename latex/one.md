@@ -42,3 +42,29 @@
 \begin{figure}[H]
 	......
 \end{figure}
+```
+# vscode 配置
+自用简单的 xelatex 配置
+```
+{
+	"latex-workshop.latex.tools": [
+        {
+            "name": "xelatex",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "cd /d %DIR% && xelatex %DOCFILE%"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "xelatex",
+            "tools": [
+                "xelatex"
+            ]
+        },
+    ],
+    "latex-workshop.latex.recipe.default": "xelatex",
+}
+```
